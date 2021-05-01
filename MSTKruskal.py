@@ -101,16 +101,15 @@ class Graph:
 # Kode pengemudi
 g = Graph(6)
 g.addEdge(0, 1, 7)
-g.addEdge(0, 2, 4)
-g.addEdge(0, 3, 15)
-g.addEdge(0, 5, 9)
-g.addEdge(1, 3, 9)
-g.addEdge(1, 5, 8)
-g.addEdge(2, 4, 4)
-g.addEdge(2, 3, 20)
-g.addEdge(3, 5, 5)
-g.addEdge(3, 4, 6)
-g.addEdge(4, 5, 2)
+g.addEdge(0, 3, 21)
+g.addEdge(0, 4, 11)
+g.addEdge(1, 2, 20)
+g.addEdge(1, 3, 11)
+g.addEdge(2, 3, 2)
+g.addEdge(2, 5, 9)
+g.addEdge(3, 4, 8)
+g.addEdge(3, 5, 16)
+g.addEdge(4, 5, 15)
 
 
 
