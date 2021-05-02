@@ -9,14 +9,14 @@ from collections import defaultdict
 
 class Graph:
 
-	def __init__(self, vertices):
-		self.V = vertices  # Jumlah seluruh verteks
+	def __init__(self, verteks):
+		self.A = verteks  # Jumlah seluruh verteks
 		self.graph = []  # default dictionary
 		# untuk menyimpan grafik
 
 	# berfungsi untuk menambahkan ujung/tepi ke grafik
-	def addEdge(self, u, v, w):
-		self.graph.append([u, v, w])
+	def addEdge(self, a, b, w):
+		self.graph.append([a, b, w])
 
 	# Fungsi utilitas untuk menemukan himpunan elemen i
 	# (menggunakan teknik kompresi jalur)
@@ -46,7 +46,7 @@ class Graph:
 
 	# Fungsi utama untuk membangun algoritma MST menggunakan kruskal
 		# algoritma
-	def KruskalMST(self):
+	def Kruskal(self):
 
 		result = []  # Menyimpan MST yang dihasilkan
 
@@ -66,19 +66,19 @@ class Graph:
 		rank = []
 
 		# Membuat subset V dengan elemen tunggal
-		for node in range(self.V):
+		for node in range(self.A):
 			parent.append(node)
 			rank.append(0)
 
 		# Jumlah tepi yag diambil = V-1
-		while e < self.V - 1:
+		while e < self.A - 1:
 
 			# Lagkah 2: Pilih tepi dan kenaikan terkecil
 			# indeks untuk literasi berikutnya
-			u, v, w = self.graph[i]
+			a, b, w = self.graph[i]
 			i = i + 1
-			x = self.find(parent, u)
-			y = self.find(parent, v)
+			x = self.find(parent, a)
+			y = self.find(parent, b)
 
 			# jika termasuk tepi ini tidak
 			# menyebabkan siklus, sertakan dalam hasil
@@ -86,16 +86,16 @@ class Graph:
 			# untuk tepi berikutnya
 			if x != y:
 				e = e + 1
-				result.append([u, v, w])
+				result.append([a, b, w])
 				self.union(parent, rank, x, y)
 			# Yang lain membuang tepi
 
 		minimumCost = 0
-		print ("Edges in the constructed MST")
-		for u, v, weight in result:
+		print ("===== Algoritma Kruskal ===== \n")
+		for a, b, weight in result:
 			minimumCost += weight
-			print("%d -- %d == %d" % (u, v, weight))
-		print("Minimum Spanning Tree", minimumCost)
+			print("	%d -- %d = %d	" % (a, b, weight))
+		print("\n Minimum Spanning Tree", minimumCost)
 
 
 # Kode pengemudi
@@ -114,4 +114,4 @@ g.addEdge(4, 5, 15)
 
 
 # Pemanggil fungsi
-g.KruskalMST()
+g.Kruskal()
